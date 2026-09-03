@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>https://my-burger-iota.vercel.app</title>
+</head>
+<body>
+
+ <iframe
+    id="frame"
+    src = "index2.html";
+    width="30%"
+    height="500"
+    scrolling="no"
+    style="border: 1px solid black;  overflow:auto;">
+</iframe>
+  
+
+    <script>
+
+        function scroll(){
+      const iframe = document.getElementById("frame");
+    iframe.src="index2.html"
+      iframe.onload = () => {
+    const win = iframe.contentWindow;
+
+    // Get scroll offsets
+    console.log("X:", win.scrollX);
+    console.log("Y:", win.scrollY);
+
+    // Set scroll offsets
+   win.scrollTo(300,500); // x = 100, y = 0
+
+  // iframe.srolling="no"
+
+    // Or:
+  //  win.scrollBy(50, 0);  // move 50px horizontally
+};
+      
+        }
+        
+scroll()
+
+   // setTimeout(scroll, 2000);
+
+
+    </script>
+    
+</body>
+</html>

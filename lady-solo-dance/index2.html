@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Page Visibility API</title>
+  </head>
+  <body>
+    <h1>Page Visibility API : Video Example</h1>
+
+    <video id="video" controls width="900" autoplay loop>
+      <!-- <source src="burger.mp4" type="video/mp4" /> -->
+        <source src="dancing.mp4" type="video/mp4" />
+    </video>
+
+    <script>
+      const video = document.querySelector("#video");
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          video.pause();
+          console.log("Video paused");
+        } else {
+          video.play();
+          console.log("Video Resumed");
+        }
+      });
+    </script>
+  </body>
+</html>

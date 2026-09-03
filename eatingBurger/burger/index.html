@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>-----Page Visibility API-----</title>
+
+    <style>
+      video {
+        width: 100%;
+        max-width: 900px;
+        height: auto;
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Video will pause switching the browser window</h1>
+
+    <video id="video" controls autoplay playsinline>
+      <source src="burger.mp4" type="video/mp4">
+      Your browser does not support the video element.
+    </video>
+
+    <script>
+      const video = document.querySelector("#video");
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          video.pause();
+          console.log("Video paused");
+        } else {
+          video.play().catch(error => {
+            console.log("Video could not be resumed automatically:", error);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
